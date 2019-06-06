@@ -52,6 +52,7 @@ const suggestions = [
   { label: 'Brunei Darussalam' },
 ];
 
+
 function renderInputComponent(inputProps) {
   const { classes, inputRef = () => {}, ref, ...other } = inputProps;
 
@@ -176,7 +177,7 @@ function Search() {
 
   return (
     <div className={classes.root}>
-    
+
       <div className={classes.divider} />
       <Autosuggest
         {...autosuggestProps}
