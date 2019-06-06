@@ -262,7 +262,7 @@ itemsNew.push(      [
 
 
   <CardNew name={this.state.players[i].name} image={this.state.players[i].image} college={this.state.players[i].college} position={this.state.players[i].position} teamName={this.state.players[i].teamName}  />
-
+<br/>
 
   </div>
      ]
