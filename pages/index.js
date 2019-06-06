@@ -289,7 +289,7 @@ itemsNew.push(      [
 
 
   <div className="tp-header-in js-gmenu-wrapper" data-menu="false" >
-		<p className="tp-header-logo">NBA Interview<a href="" className="tp-header-logo-anchor">
+		<p className="tp-header-logo"><a href="" className="tp-header-logo-anchor">
       <img src="https://i.ibb.co/pWsT1Kf/NBA-logo-squarish.jpg" alt=""/></a></p>
 
 	</div>

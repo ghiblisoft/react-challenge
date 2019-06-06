@@ -73,7 +73,7 @@ var imageUrl="http://localhost:3008/"+this.props.image+""
         <div >
 
                 <Paper style={{ maxWidth: "20vw" }} >
-          <Card profile  raised color="primary">
+          <Card profile  raised color="success">
 
     <CardHeader image>
       <a href="#pablo" onClick={e => e.preventDefault()}>
