@@ -288,7 +288,7 @@ itemsNew.push(      [
 <header id=""  style={{backgroundColor:"white", margin:"0",padding:"0"}}>
 
 
-	<div className="tp-header-in js-gmenu-wrapper" data-menu="false" style={{heigh:"10vh"}}>
+  <div className="tp-header-in js-gmenu-wrapper" data-menu="false" >
 		<p className="tp-header-logo">NBA Interview<a href="" className="tp-header-logo-anchor">
       <img src="https://i.ibb.co/pWsT1Kf/NBA-logo-squarish.jpg" alt=""/></a></p>
 
@@ -302,12 +302,12 @@ itemsNew.push(      [
 
 {/*<FrontRetrievePage siteLocation={"front"}/> */}
   {/*<MainNav/>*/}
-  <div style={{margin: "0 auto", width:"20vw"}}>
+  <div style={{margin: "0 auto", width:"20vw",height:"5vh"}}>
 
 
     <Search/>
     </div>
-  <div style={{ height:"70vh",overflowY: "scroll"}}>
+  <div style={{ height:"45vh",overflowY: "scroll",margin: "0 auto", width:"20vw"}}>
 
 
 {itemsNew}
@@ -318,11 +318,11 @@ itemsNew.push(      [
 
 
 </div>
-
+<div style={{position: "absolute",bottom: ".01vh", width: "100%"}}>
         <Footer
           style={{heigh:"10vh"}}
           content={
-            <div style={{heigh:"10vh"}}>
+            <div style={{height:"10vh"}}>
 
               <div className={landingPageStyle.right}>
                 &copy; {1900 + new Date().getYear()}, made by{" "}
@@ -332,6 +332,7 @@ itemsNew.push(      [
             </div>
           }
         />
+      </div>
       </div>
     );
   }
