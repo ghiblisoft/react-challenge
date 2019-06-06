@@ -16,8 +16,9 @@
         "react-scripts": "3.0.0"
     },
     "scripts": {
-        "start": "./node_modules/.bin/concurrently \"cd ./node_modules/react-interview-json-server && node index.js\" \"node server.js\"",
-        "build": "next build",
+      "build": "next build",
+      "start": "./node_modules/.bin/concurrently \"cd ./node_modules/react-interview-json-server && node index.js\" \"node server.js\"",
+"start-next": "node server.js",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
