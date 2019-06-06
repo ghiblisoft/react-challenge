@@ -45,7 +45,7 @@ import axios from 'axios';
 
 import HeadInfo from './head'
 
-
+import Main from "./Main/index";
 
 
 
@@ -197,7 +197,7 @@ var buttons=[]
 <div >
 
 <div style={{width:divWidth, margin:"0 auto"}}>
-
+  <Main/>
 
 </div>
 
