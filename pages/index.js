@@ -121,22 +121,17 @@ this.setState({isMobile:mobile()})
   var id=playersArray[i].id.toString()
 
   var teamName=teamObject[id]
-  console.log("This is the team name "+teamName)
+  //console.log("This is the team name "+teamName)
 //add team name to players array object at specific array slot
 playersArray[i].teamName=teamName
 
-console.log("This is is players array team name at slot "+ i+" "+playersArray[i].teamName)
-//add players array to state 
+//console.log("This is is players array team name at slot "+ i+" "+playersArray[i].teamName)
+//add players array to state
 
   }
+that.setState({players:playersArray})
 
 
-
-
-
-
-
-            that.setState({players:response.data})
                 })
                 .catch(function (error) {
                   console.log(error);
@@ -257,30 +252,23 @@ itemsNew.push(      [
 const itemsNew=[]
 for (var i=0;i < this.state.players.length;i++)
 {
-//console.log("This is the players name "+this.state.players[i].name)
+//console.log("This is the players name "+this.state.players[i].name+" this is the team name "+this.state.players[i].teamName)
 //var row=this.state.ids[i]
 
 
-/*
+
 itemsNew.push(      [
-      <div style={{color:"black",textAlign:"center"}}>
+      <div style={{}}>
 
 
-
-     <img src={row.thumbnailUrl} style={{height:"98vh",width:"98vw"}} onClick={() => handleThumbnailClick(row._id)}  /> <br/>
-
-      <p onClick={() => handleThumbnailClick(row._id)} style={{fontSize:"150%",color:"black",textAlign:"center"}}> Year: {row.year} <br/> Make: {row.make} <br/>  Model:{row.model} <br/>
-      Price: {row.price}</p>
-
-
-
+  <CardNew name={this.state.players[i].name} image={this.state.players[i].image} college={this.state.players[i].college} position={this.state.players[i].position} teamName={this.state.players[i].teamName}  />
 
 
   </div>
      ]
 
      )
-*/
+
 
 }
 
@@ -295,45 +283,37 @@ itemsNew.push(      [
         }}
 
         >
-    {/*  <Header
-        brand=""
-        links={<HomePageLinks dropdownHoverColor="info" />}
-        fixed
-        color="transparent"
-        changeColorOnScroll={{
-          height: 400,
-          color: "secondary"
-        }}
-      />
-*/}
+
 <HeadInfo/>
 <header id=""  style={{backgroundColor:"white", margin:"0",padding:"0"}}>
 
 
-	<div className="tp-header-in js-gmenu-wrapper" data-menu="false">
-		<p className="tp-header-logo">NBA Interview<a href="" className="tp-header-logo-anchor"><img src="" alt=""/></a></p>
-<div style={{float:"right"}}>
+	<div className="tp-header-in js-gmenu-wrapper" data-menu="false" style={{heigh:"10vh"}}>
+		<p className="tp-header-logo">NBA Interview<a href="" className="tp-header-logo-anchor">
+      <img src="https://i.ibb.co/pWsT1Kf/NBA-logo-squarish.jpg" alt=""/></a></p>
 
-
-
-
-</div>
 	</div>
 
 
 	</header>
 <div >
 
-<div style={{width:divWidth, margin:"0 auto"}}>
+
 
 {/*<FrontRetrievePage siteLocation={"front"}/> */}
   {/*<MainNav/>*/}
-  <Search/>
+  <div style={{margin: "0 auto", width:"20vw"}}>
+
+
+    <Search/>
+    </div>
+  <div style={{ height:"70vh",overflowY: "scroll"}}>
+
 
 {itemsNew}
-  <CardNew name={"Peter"}/>
-
 </div>
+
+
 
 
 

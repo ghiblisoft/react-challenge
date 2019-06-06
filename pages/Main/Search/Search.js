@@ -176,15 +176,15 @@ function Search() {
 
   return (
     <div className={classes.root}>
-    
+
       <div className={classes.divider} />
       <Autosuggest
         {...autosuggestProps}
         inputProps={{
           classes,
           id: 'react-autosuggest-popper',
-          label: 'Country',
-          placeholder: 'With Popper',
+          label: 'Player',
+          placeholder: 'Name',
           value: state.popper,
           onChange: handleChange('popper'),
           inputRef: node => {

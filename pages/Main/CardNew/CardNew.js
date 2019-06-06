@@ -36,7 +36,7 @@ class CardNew extends React.Component {
       players:[{name:""}],
       teams:[{name:""}]
     };
-console.log("THis is the name is card new "+props.name)
+//console.log("THis is the name is card new "+props.name)
   //  this.handleClick = this.handleClick.bind(this);
 
 //   this.handleClick = this.handleClick.bind(this);
@@ -56,6 +56,7 @@ console.log("THis is the name is card new "+props.name)
   }
 
     render() {
+  //    console.log("This is the name in card name render "+this.props.name)
   //
 //  const classes = useStyles();
 
@@ -84,13 +85,12 @@ console.log("THis is the name is card new "+props.name)
       <div
         className={cardsStyle.coloredShadow}
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D)`,
           opacity: "1"
         }}
       />
     </CardHeader>
     <CardBody>
-      <h4 className={cardsStyle.cardTitle}>Alec Thompson</h4>
+      <h4 className={cardsStyle.cardTitle}>{this.props.name}</h4>
       <h6 className={`${cardsStyle.cardCategory} ${cardsStyle.cardDescription}`}>
         CEO / CO-FOUNDER
       </h6>
@@ -101,10 +101,10 @@ console.log("THis is the name is card new "+props.name)
 
   </Card>
     </Paper>
-            <div style={styles.name}>Gordon "Snake" Hayward</div>
+          {/*  <div style={styles.name}>Gordon "Snake" Hayward</div>
             <img src="http://localhost:3008/gordon_hayward.png" alt="player_image" />
 
-            <div>Boston Celtics</div>
+            <div>Boston Celtics</div> */}
         </div>
     );
 };
