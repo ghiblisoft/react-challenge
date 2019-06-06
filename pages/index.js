@@ -302,12 +302,12 @@ itemsNew.push(      [
 
 {/*<FrontRetrievePage siteLocation={"front"}/> */}
   {/*<MainNav/>*/}
-  <div style={{margin: "0 auto", width:"20vw",height:"5vh"}}>
+  <div style={{margin: "0 auto", width:"20vw",height:"10vh"}}>
 
 
     <Search/>
     </div>
-  <div style={{ height:"45vh",overflowY: "scroll",margin: "0 auto", width:"20vw"}}>
+  <div style={{ height:"55vh",overflowY: "scroll",margin: "0 auto", width:"20vw"}}>
 
 
 {itemsNew}
@@ -319,19 +319,14 @@ itemsNew.push(      [
 
 </div>
 <div style={{position: "absolute",bottom: ".01vh", width: "100%"}}>
-        <Footer
-          style={{heigh:"10vh"}}
-          content={
-            <div style={{height:"10vh"}}>
+  <div style={{height:"5vh"}}>
 
-              <div className={landingPageStyle.right}>
-                &copy; {1900 + new Date().getYear()}, made by{" "}
-                Peter Larrimore.
+    <div className={landingPageStyle.right}>
+      &copy; {1900 + new Date().getYear()}, made by{" "}
+      Peter Larrimore.
 
-              </div>
-            </div>
-          }
-        />
+    </div>
+  </div>
       </div>
       </div>
     );
@@ -342,7 +337,6 @@ itemsNew.push(      [
 }
 
 
-/*const mapStateToProps = () => ({})
-const mapDispatchToProps = () => ({})*/
+
 
 export default Index

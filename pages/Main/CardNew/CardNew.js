@@ -67,18 +67,18 @@ class CardNew extends React.Component {
 
 //  let url = 'localhost:3008/players';
 
-
+var imageUrl="http://localhost:3008/"+this.props.image+""
 
     return (
         <div >
-        
+
                 <Paper style={{ maxWidth: "20vw" }} >
           <Card profile  raised color="primary">
 
     <CardHeader image>
       <a href="#pablo" onClick={e => e.preventDefault()}>
         <img
-          src="https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+          src={imageUrl}
           alt="..."
         />
       </a>
@@ -90,10 +90,16 @@ class CardNew extends React.Component {
       />
     </CardHeader>
     <CardBody>
-      <h4 className={cardsStyle.cardTitle}>{this.props.name}</h4>
-      <h6 className={`${cardsStyle.cardCategory} ${cardsStyle.cardDescription}`}>
-      Team: {this.props.teamName}
-      </h6>
+      <h4 className={cardsStyle.cardTitle}>Name:{" "}{this.props.name}</h4>
+      <h4>
+      Team:{" "} {this.props.teamName}
+    </h4>
+      <h4 >
+      College:{" "} {this.props.college}
+    </h4>
+      <h4 >
+      Position:{" "} {this.props.position}
+    </h4>
     </CardBody>
     <CardFooter profile className={cardsStyle.justifyContentCenter}>
 
