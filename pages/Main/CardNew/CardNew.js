@@ -71,7 +71,7 @@ class CardNew extends React.Component {
 
     return (
         <div >
-          {this.state.players[0].name}
+        
                 <Paper style={{ maxWidth: "20vw" }} >
           <Card profile  raised color="primary">
 
@@ -92,7 +92,7 @@ class CardNew extends React.Component {
     <CardBody>
       <h4 className={cardsStyle.cardTitle}>{this.props.name}</h4>
       <h6 className={`${cardsStyle.cardCategory} ${cardsStyle.cardDescription}`}>
-        CEO / CO-FOUNDER
+      Team: {this.props.teamName}
       </h6>
     </CardBody>
     <CardFooter profile className={cardsStyle.justifyContentCenter}>
