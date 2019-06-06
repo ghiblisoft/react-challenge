@@ -17,7 +17,7 @@ const Router = require('./routes')
 
 
 const handle = Router.getRequestHandler(app)
-
+const axios = require('axios')
 
 
 app.prepare()
@@ -37,6 +37,67 @@ server.get('*', (req, res) => handle(req, res))
 })
 
 
+server.post('/retrievePlayers', function(req, res) {
+  console.log("Trying retrieve players ")
+  try {
+
+
+    console.log("Calling retrieve players in each team ")
+
+    axios.get('http://localhost:3008/teams')
+      .then(function (response) {
+    //    console.log("This is players slot 0 name in teams api call"+players[0].name)
+        console.log("response "+response);
+      /*  console.log("respone data "+response.data)
+        console.log("This is the team name "+response.data[0].name)
+          console.log("This is the players "+response.data[0].players)
+
+          console.log("This is the team name slot 1"+response.data[1].name)
+            console.log("This is the players slot 1"+response.data[1].players)*/
+
+        console.log("This is the teams object keys of response.data[0] "+Object.keys(response.data[0]))
+
+//  that.setState({teams:response.data})
+var playersObject={}
+  for (var i=0;i<response.data.length;i++)
+  {
+var players=response.data[i].players
+for(var j=0 ;j<players.length;j++)
+{
+
+  playersObject[players[j].toString()]=response.data[i].name
+
+}
+
+
+  //console.log("This is the id "+response.data[i].id)
+  /*if ( response.data[i].players.includes(1))
+    {
+    console.log("players includes 1")
+    }
+*/
+
+
+
+}
+console.log("This is object key 1 "+playersObject["1"])
+
+res.send(playersObject)
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+}
+catch(err) {
+console.log("This is the err "+err)
+}
+
+
+});
 
 
 

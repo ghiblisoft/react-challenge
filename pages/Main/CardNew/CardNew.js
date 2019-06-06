@@ -11,9 +11,10 @@ import Button from "~/components/CustomButtons/Button.jsx";
 import { makeStyles } from '@material-ui/core/styles';
 
 import cardsStyle from "~/assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.jsx";
-
+import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
-const useStyles = makeStyles(theme => ({
+
+/*const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
   },
@@ -22,11 +23,110 @@ const useStyles = makeStyles(theme => ({
 const style = {
   ...cardsStyle
 };
-const CardNew = props => {
-  const classes = useStyles();
+*/
+
+
+
+
+class CardNew extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      players:[{name:""}],
+      teams:[{name:""}]
+    };
+
+  //  this.handleClick = this.handleClick.bind(this);
+
+//   this.handleClick = this.handleClick.bind(this);
+  }
+  componentWillMount()
+  {
+
+    this.setState({players:[{name:""}]})
+  }
+
+  componentDidMount()
+  {
+
+
+
+
+var that=this
+
+axios.get('/retrievePlayers')
+  .then(function (response) {
+    console.log("response "+response);
+    console.log("respone data "+response.data)
+
+
+  })
+  .catch(function (error) {
+    console.log("This is the error in retrieve players "+error);
+  });
+
+  axios.post('/retrievePlayers',{
+
+
+      })
+        .then(function (response) {
+        //  console.log(response.data);
+        //  console.log("This is the response "+response.data[0])
+        //  console.log("This is the response 0 key "+response.data[0].Key)
+        console.log("This is the response "+response)
+        console.log("This is the response.data "+response.data)
+        console.log("This is keys of response. data "+Object.keys(response.data))
+
+
+        })
+        .catch(function (error) {
+          console.log("This is the error in retrieve players"+ error);
+        });
+
+
+
+
+
+    axios.get('http://localhost:3008/players')
+      .then(function (response) {
+        console.log("response "+response);
+        console.log("respone data "+response.data)
+        console.log("This is the player name "+response.data[0].name)
+          console.log("This is the players object keys of response.data[0] "+Object.keys(response.data[0]))
+
+var players=response.data
+
+
+
+
+  that.setState({players:response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+  }
+
+    render() {
+  //
+//  const classes = useStyles();
+
+
+//this.setState({players:[{"name":""}]})
+
+//var fetch = require("fetch").fetchUrl;
+
+//  let url = 'localhost:3008/players';
+
+
+
     return (
         <div >
-                <Paper style={{ maxWidth: "20vw" }} className={classes.root}>
+          {this.state.players[0].name}
+                <Paper style={{ maxWidth: "20vw" }} >
           <Card profile  raised color="primary">
 
     <CardHeader image>
@@ -64,4 +164,5 @@ const CardNew = props => {
     );
 };
 
+}
 export default CardNew;

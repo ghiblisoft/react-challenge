@@ -1,9 +1,6 @@
 //Setup page like mockup
-
-
 import React from "react";
 import ReactDOM from "react-dom";
-
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -20,16 +17,7 @@ import GridItem from "~/components/Grid/GridItem.jsx";
 //import Button from "components/CustomButtons/Button.jsx";
 import Button from '@material-ui/core/Button';
 
-
-import Parallax from "~/components/Parallax/Parallax.jsx";
-
 import landingPageStyle from "~/assets/jss/material-kit-pro-react/views/landingPageStyle.jsx";
-
-// Sections for this page
-
-
-
-
 import Card from "~/components/Card/Card.jsx";
 import CardBody from "~/components/Card/CardBody.jsx";
 
@@ -37,21 +25,18 @@ import imagesStyles from "~/assets/jss/material-kit-pro-react/imagesStyles.jsx";
 
 import { cardTitle } from "~/assets/jss/material-kit-pro-react.jsx";
 
-
 import $ from 'jquery';
 import {Link} from '../routes'
 import {Router} from '../routes'
 import axios from 'axios';
-
+//import FrontRetrievePage from "~/views/ImageRetrievePage/FrontRetrievePage.jsx";
 import HeadInfo from './head'
+import Search from "./Main/Search/Search";
+import CardNew from "./Main/CardNew/CardNew";
 
-import Main from "./Main/index";
+//import Main from "./Main/index";
 
 
-
-
-
-const dashboardRoutes = [];
 /*
 var MobileDetect = require('mobile-detect'),
     md = new MobileDetect(req.headers['user-agent']);
@@ -73,6 +58,13 @@ class Index extends React.Component {
    this.handleClick = this.handleClick.bind(this);
   }
 
+  /*static getInitialProps ({ reduxStore, req }) {
+      const isServer = !!req
+      // DISPATCH ACTIONS HERE ONLY WITH `reduxStore.dispatch`
+      reduxStore.dispatch(serverRenderClock(isServer))
+
+      return {}
+  }*/
   componentWillMount()
   {
     this.setState({isMobile:true})
@@ -93,8 +85,7 @@ this.setState({isMobile:mobile()})
    }
   componentDidMount() {
 
-/*
-    axios.post('/retrieveIsMobile',{
+    /*axios.post('/retrieveIsMobile',{
 
 
       })
@@ -106,9 +97,7 @@ this.setState({isMobile:mobile()})
         })
         .catch(function (error) {
           console.log("This is the error "+error);
-        });
-*/
-
+        });*/
 
   }
 
@@ -145,7 +134,7 @@ this.setState({isMobile:mobile()})
 
      if (this.state.isMobile==true) {
        var isMobile="true"
-       console.log("is mobile is true in landing page")
+       console.log("is mobile is true in front retrieve page")
        var divHeight="98vw"
        var divWidth="98vw"
 
@@ -156,7 +145,7 @@ this.setState({isMobile:mobile()})
      }
      else {
        var isMobile="false"
-         console.log("is mobile is false in landing page")
+         console.log("is mobile is false in front retrieve page")
          var divHeight="70vw"
          var divWidth="70vw"
 
@@ -166,27 +155,53 @@ this.setState({isMobile:mobile()})
 
 
 var buttons=[]
+/*
+buttons.push(
+
+<div>
+<Button type="button">Cars For Sale</Button><Button type="button">Parts For Sale</Button>
+</div>
+
+
+
+)
+
+*/
 
 
 
 
     return (
+
+
       <div
         style={{
-          backgroundPosition: 'center',
+        backgroundPosition: 'center',
         backgroundSize: 'cover'
 
         }}
 
         >
-
+    {/*  <Header
+        brand=""
+        links={<HomePageLinks dropdownHoverColor="info" />}
+        fixed
+        color="transparent"
+        changeColorOnScroll={{
+          height: 400,
+          color: "secondary"
+        }}
+      />
+*/}
 <HeadInfo/>
-<header id="" className="" style={{backgroundColor:"white", margin:"0",padding:"0"}}>
+<header id=""  style={{backgroundColor:"white", margin:"0",padding:"0"}}>
 
 
 	<div className="tp-header-in js-gmenu-wrapper" data-menu="false">
 		<p className="tp-header-logo">NBA Interview<a href="" className="tp-header-logo-anchor"><img src="" alt=""/></a></p>
 <div style={{float:"right"}}>
+
+
 
 
 </div>
@@ -197,7 +212,11 @@ var buttons=[]
 <div >
 
 <div style={{width:divWidth, margin:"0 auto"}}>
-  <Main/>
+
+{/*<FrontRetrievePage siteLocation={"front"}/> */}
+  {/*<MainNav/>*/}
+  <Search/>
+  <CardNew/>
 
 </div>
 
@@ -205,19 +224,19 @@ var buttons=[]
 
 </div>
 
-<Footer
-    style={{heigh:"10vh"}}
-    content={
-      <div style={{heigh:"10vh"}}>
+        <Footer
+          style={{heigh:"10vh"}}
+          content={
+            <div style={{heigh:"10vh"}}>
 
-        <div className={landingPageStyle.right}>
-          &copy; {1900 + new Date().getYear()}, made by{" "}
-          Peter Larrimore.
+              <div className={landingPageStyle.right}>
+                &copy; {1900 + new Date().getYear()}, made by{" "}
+                Peter Larrimore.
 
-        </div>
-      </div>
-    }
-  />
+              </div>
+            </div>
+          }
+        />
       </div>
     );
   }
