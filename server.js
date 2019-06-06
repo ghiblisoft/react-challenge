@@ -12,12 +12,13 @@ const cors = require("cors");
 var moment = require('moment');
 var bodyParser = require('body-parser');
 
+const axios = require('axios')
 
 const Router = require('./routes')
 
 
 const handle = Router.getRequestHandler(app)
-const axios = require('axios')
+
 
 
 app.prepare()
@@ -91,6 +92,8 @@ res.send(playersObject)
 
 
 
+
+
 }
 catch(err) {
 console.log("This is the err "+err)
@@ -100,13 +103,12 @@ console.log("This is the err "+err)
 });
 
 
-
   server.post('/retrieveIsMobile', function(req, res) {
     console.log("Trying retrieve is mobile ")
     try {
 
 
-      console.log("Calling is mobile ")
+      console.log("Calling the is mobile ")
       var MobileDetect = require('mobile-detect'),
         md = new MobileDetect(req.headers['user-agent']);
 
@@ -121,6 +123,51 @@ console.log("This is the err "+err)
 
 
   });
+
+  server.post('/retrieveFrontPageNew', function(req, res) {
+      console.log("Calling the retrieve front page ")
+    //  var city=req.body.city
+    //  var country=req.body.country
+
+    console.log("This is the type in retrieve front page "+req.body.type)
+    try{
+    var type=req.body.type
+    var location=req.body.location
+      const mongoose = require("mongoose");
+        const ListedItem = mongoose.model("ListedItem");
+  console.log("This is the location "+ location)
+  //    var query = ListedItem.findOne({'category': location}).sort({"timestamp":-1})
+
+  ListedItem.findOne({'category': location}).sort({timestamp: -1}).exec(function(err, doc) {
+
+    console.log("This is docs "+doc)
+      /*   docs.forEach(function(doc) {
+           console.log("This is the doc id "+doc._id)
+           userMap[doc._id] = doc;
+         });
+    */
+         res.send(doc);
+
+   });
+
+  /*
+      Shirts.find({'category': location}, function(err, docs) {
+       var userMap = {};
+       var urls=[]
+
+  console.log("This is docs "+docs)
+
+       res.send(docs);
+     });
+  */
+
+
+
+  }catch(error)
+  {
+  console.log("This is the error in retrieve front page "+error)
+  }
+  })
 
 
 

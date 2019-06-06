@@ -50,6 +50,8 @@ class Index extends React.Component {
     super(props);
 
     this.state = {
+      players:[{name:""}],
+      teams:[{name:""}],
       isMobile:true
     };
 
@@ -68,6 +70,7 @@ class Index extends React.Component {
   componentWillMount()
   {
     this.setState({isMobile:true})
+    this.setState({players:[{name:""}]})
 //console.log("This is the mobile detect value "+md.mobile())
 var mobile = require('is-mobile');
 
@@ -85,19 +88,72 @@ this.setState({isMobile:mobile()})
    }
   componentDidMount() {
 
-    /*axios.post('/retrieveIsMobile',{
+    var that=this
 
 
-      })
-        .then(function (response) {
-          console.log("This is the response "+response)
-          console.log("This is the object keys "+Object.keys(response))
-          console.log("This is the response data "+response.data);
+
+    axios.post('/retrievePlayers',{
+
 
         })
-        .catch(function (error) {
-          console.log("This is the error "+error);
-        });*/
+          .then(function (response) {
+          //  console.log(response.data);
+          //  console.log("This is the response "+response.data[0])
+          //  console.log("This is the response 0 key "+response.data[0].Key)
+          console.log("This is the response "+response)
+          console.log("This is the response.data "+response.data)
+          console.log("This is keys of response. data "+Object.keys(response.data))
+  var teamObject=response.data
+  console.log("This is team object slot 1 "+teamObject["1"])
+
+
+              axios.get('http://localhost:3008/players')
+                .then(function (response) {
+                  console.log("response "+response);
+                  console.log("respone data "+response.data)
+                  console.log("This is the player name "+response.data[0].name)
+                    console.log("This is the players object keys of response.data[0] "+Object.keys(response.data[0]))
+  var playersArray=response.data
+
+  for (var i=0;i<playersArray.length;i++)
+  {
+
+  var id=playersArray[i].id.toString()
+
+  var teamName=teamObject[id]
+  console.log("This is the team name "+teamName)
+//add team name to players array object at specific array slot
+playersArray[i].teamName=teamName
+
+console.log("This is is players array team name at slot "+ i+" "+playersArray[i].teamName)
+//add players array to state 
+
+  }
+
+
+
+
+
+
+
+            that.setState({players:response.data})
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+
+
+
+
+
+          })
+          .catch(function (error) {
+            console.log("This is the error in retrieve players"+ error);
+          });
+
+
+
+
 
   }
 
@@ -168,8 +224,65 @@ buttons.push(
 
 */
 
+/*
+for (var i=0;i < this.state.ids.length;i++)
+{
+
+var row=this.state.ids[i]
 
 
+
+itemsNew.push(      [
+      <div style={{color:"black",textAlign:"center"}}>
+
+
+
+     <img src={row.thumbnailUrl} style={{height:"98vh",width:"98vw"}} onClick={() => handleThumbnailClick(row._id)}  /> <br/>
+
+      <p onClick={() => handleThumbnailClick(row._id)} style={{fontSize:"150%",color:"black",textAlign:"center"}}> Year: {row.year} <br/> Make: {row.make} <br/>  Model:{row.model} <br/>
+      Price: {row.price}</p>
+
+
+
+
+
+  </div>
+     ]
+
+     )
+
+}
+*/
+
+const itemsNew=[]
+for (var i=0;i < this.state.players.length;i++)
+{
+//console.log("This is the players name "+this.state.players[i].name)
+//var row=this.state.ids[i]
+
+
+/*
+itemsNew.push(      [
+      <div style={{color:"black",textAlign:"center"}}>
+
+
+
+     <img src={row.thumbnailUrl} style={{height:"98vh",width:"98vw"}} onClick={() => handleThumbnailClick(row._id)}  /> <br/>
+
+      <p onClick={() => handleThumbnailClick(row._id)} style={{fontSize:"150%",color:"black",textAlign:"center"}}> Year: {row.year} <br/> Make: {row.make} <br/>  Model:{row.model} <br/>
+      Price: {row.price}</p>
+
+
+
+
+
+  </div>
+     ]
+
+     )
+*/
+
+}
 
     return (
 
@@ -216,7 +329,9 @@ buttons.push(
 {/*<FrontRetrievePage siteLocation={"front"}/> */}
   {/*<MainNav/>*/}
   <Search/>
-  <CardNew/>
+
+{itemsNew}
+  <CardNew name={"Peter"}/>
 
 </div>
 

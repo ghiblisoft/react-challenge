@@ -36,7 +36,7 @@ class CardNew extends React.Component {
       players:[{name:""}],
       teams:[{name:""}]
     };
-
+console.log("THis is the name is card new "+props.name)
   //  this.handleClick = this.handleClick.bind(this);
 
 //   this.handleClick = this.handleClick.bind(this);
@@ -50,61 +50,6 @@ class CardNew extends React.Component {
   componentDidMount()
   {
 
-
-
-
-var that=this
-
-axios.get('/retrievePlayers')
-  .then(function (response) {
-    console.log("response "+response);
-    console.log("respone data "+response.data)
-
-
-  })
-  .catch(function (error) {
-    console.log("This is the error in retrieve players "+error);
-  });
-
-  axios.post('/retrievePlayers',{
-
-
-      })
-        .then(function (response) {
-        //  console.log(response.data);
-        //  console.log("This is the response "+response.data[0])
-        //  console.log("This is the response 0 key "+response.data[0].Key)
-        console.log("This is the response "+response)
-        console.log("This is the response.data "+response.data)
-        console.log("This is keys of response. data "+Object.keys(response.data))
-
-
-        })
-        .catch(function (error) {
-          console.log("This is the error in retrieve players"+ error);
-        });
-
-
-
-
-
-    axios.get('http://localhost:3008/players')
-      .then(function (response) {
-        console.log("response "+response);
-        console.log("respone data "+response.data)
-        console.log("This is the player name "+response.data[0].name)
-          console.log("This is the players object keys of response.data[0] "+Object.keys(response.data[0]))
-
-var players=response.data
-
-
-
-
-  that.setState({players:response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
 
 
 
